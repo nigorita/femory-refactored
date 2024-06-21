@@ -94,7 +94,7 @@ const Home = () => {
           
         ))}
       </ul>
-      <h4>Created By: Negar Rahbar</h4>
+      <h4>Created By: <a href="https://github.com/nigorita/femory-refactored">Negar Rahbar</a></h4>
     </div>
   );
 };
