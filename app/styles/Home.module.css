@@ -1,0 +1,30 @@
+
+.container {
+    text-align: center;
+  }
+  
+  .refreshButton {
+    margin: 20px;
+    padding: 10px;
+    background: white;
+    border: solid 2px blue;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .cardList {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 10px;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .cardContainer {
+    width: 132px;
+    height: 132px;
+    position: relative;
+  }
+  
