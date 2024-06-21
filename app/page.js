@@ -80,7 +80,6 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Nav />
-      <h4>Created By: Negar Rahbar</h4>
       <button className={styles.refreshButton} onClick={() => window.location.reload()}>
         Play Again
       </button>
@@ -92,8 +91,10 @@ const Home = () => {
             onClick={() => handleCardClick(fig, index)}
             win={win}
           />
+          
         ))}
       </ul>
+      <h4>Created By: Negar Rahbar</h4>
     </div>
   );
 };

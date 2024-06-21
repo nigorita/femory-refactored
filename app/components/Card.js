@@ -11,9 +11,8 @@ const Card = ({ fig, onClick, win }) => (
         <button className={styles.cardButton} onClick={onClick}></button>
       </div>
       <div className={styles.cardface + ' ' + styles.back}>
-        <img src={fig.image} alt={fig.name} />
-        <a className={styles.wikis} hidden={!win} target="_blank" href={fig.wiki}>
-          {fig.name}
+        <img className={styles.cardImage} src={fig.image} alt={fig.name} />
+        <a className={styles.wikis} hidden={!win} target="_blank" href={fig.wiki}>{fig.name}
         </a>
       </div>
     </div>

@@ -58,7 +58,7 @@ const pics = [
 },
 {
   id: 8,
-  name: 'Bhama Srinivsan',
+  name: 'Bhama Srinivasan',
   image: 'photos/Bhama-Srinivasan.jpg',
   isFlipped: false,
   cl: 'card',
@@ -67,7 +67,7 @@ const pics = [
 {
   id: 9,
   name: 'Hema Srinivsan',
-  image: 'photos/Hema-Srinivasan.jpg',
+  image: 'photos/Hema-Srinivsan.jpg',
   isFlipped: false,
   cl: 'card',
   wiki: 'https://en.wikipedia.org/wiki/Hema_Srinivasan'
