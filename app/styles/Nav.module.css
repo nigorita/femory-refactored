@@ -1,0 +1,28 @@
+/* Nav.module.css */
+
+.nav {
+  background-color: #438f87;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+
+.nav h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.nav h2 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .nav h1 {
+    font-size: 1.5rem;
+  }
+
+  .nav h2 {
+    font-size: 1rem;
+  }
+}

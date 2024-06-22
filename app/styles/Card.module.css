@@ -34,12 +34,12 @@
   }
   
   .front {
-    background: #5c852c;
+    background: #78b3af;
     cursor: pointer;
   }
   
   .back {
-    background: red;
+    background: rgb(79, 102, 80);
     transform: rotateY(180deg);
   }
   

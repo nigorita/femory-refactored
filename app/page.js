@@ -1,14 +1,12 @@
-// /app/page.js
-
 "use client";
-
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Nav from './components/Nav';
 import Card from './components/Card';
+import styles from './styles/Home.module.css';
+
 import pics from './data/data';
 import { shuffle } from './utils/shuffle';
-import styles from './styles/Home.module.css';
 
 const Home = () => {
   const [listo, setListo] = useState([]);
@@ -18,20 +16,10 @@ const Home = () => {
 
   useEffect(() => {
     const shuffledPics = shuffle(pics);
-
-    if (shuffledPics.length < 8) {
-      console.error("Not enough pictures to create pairs.");
-      return;
-    }
-
     let doubledPics = [];
     for (let i = 0; i < 8; i++) {
-      if (!shuffledPics[i]) {
-        console.error(`shuffledPics[${i}] is undefined`);
-        continue;
-      }
-      doubledPics.push({ ...shuffledPics[i], isFlipped: false });
-      doubledPics.push({ ...shuffledPics[i], id: shuffledPics[i].id + 0.5, isFlipped: false });
+      doubledPics.push(shuffledPics[i]);
+      doubledPics.push({ ...shuffledPics[i], id: shuffledPics[i].id + 0.5 });
     }
     setListo(shuffle(doubledPics));
   }, []);
@@ -41,20 +29,19 @@ const Home = () => {
       if (names[0].name !== names[1].name) {
         setTimeout(() => {
           setListo(prevListo =>
-            prevListo.map(item =>
-              item.name === names[0].name || item.name === names[1].name
-                ? { ...item, isFlipped: false }
-                : item
-            )
+            prevListo.map(x => {
+              if (x.name === names[0].name || x.name === names[1].name) {
+                return { ...x, isFlipped: false };
+              }
+              return x;
+            })
           );
         }, 800);
       } else {
-        const hasWon = listo.every(item => item.isFlipped);
+        const hasWon = listo.every(x => x.isFlipped);
         setWin(hasWon);
         if (hasWon) {
-          setTimeout(() => {
-            alert(`You won with ${count} clicks. Now click on Wikipedia links to learn about these amazing people.`);
-          }, 1200);
+          alert(`You won with ${count} clicks. Now click on Wikipedia links to learn about these amazing people.`);
         }
       }
       setNames([]);
@@ -74,27 +61,33 @@ const Home = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.pageContainer}>
       <Head>
         <title>Home</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Nav />
+      <div className={styles.content}>
       <button className={styles.refreshButton} onClick={() => window.location.reload()}>
-        Play Again
-      </button>
-      <ul className={styles.cardList}>
-        {listo.map((fig, index) => (
-          <Card
-            key={index}
-            fig={fig}
-            onClick={() => handleCardClick(fig, index)}
-            win={win}
-          />
-          
-        ))}
-      </ul>
-      <h4>Created By: <a href="https://github.com/nigorita/femory-refactored">Negar Rahbar</a></h4>
+          Play Again
+        </button>
+        <ul className={styles.cardList}>
+          {listo.map((fig, index) => (
+            <Card
+              key={fig.id}
+              fig={fig}
+              onClick={() => handleCardClick(fig, index)}
+              win={win}
+            />
+          ))}
+        </ul>
+      </div>
+      <footer className={styles.footer}>
+        <i className="fa-brands fa-github"></i>
+        <h4>
+          Created By: <a href="https://github.com/nigorita/femory-refactored">Negar Rahbar</a>
+        </h4>
+      </footer>
     </div>
   );
 };
