@@ -415,6 +415,14 @@ const pics = [
   wiki: 'https://en.wikipedia.org/wiki/Nasrin_Moazami',
   isFlipped: false,
   cl: 'card'
+},
+{
+  id: 53,
+  name: 'Vida Movahed',
+  image: 'photos/Vida-Movahed.jpg',
+  wiki: 'https://en.wikipedia.org/wiki/Vida_Movahed',
+  isFlipped: false,
+  cl: 'card'
 }
 ];
   export default pics;
